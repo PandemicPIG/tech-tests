@@ -1,0 +1,18 @@
+Problem statement: Implement a function to find the most frequent item in an array
+
+Write a JavaScript function that takes an array of items as input and returns the
+most frequent item in the array. If there are multiple items with the same frequency,
+the function should return the item that appears first in the array.
+
+
+
+Instructions:
+
+Your function should take one parameter: the array of items.
+
+Your function should return the most frequent item in the array.
+
+If there are multiple items with the same frequency, your function should
+return the item that appears first in the array.
+
+Your function should handle arrays of any length, including empty arrays.

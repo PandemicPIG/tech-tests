@@ -1,0 +1,16 @@
+Problem statement: Reverse a string
+
+Write a JavaScript function that takes a string as input, and returns the string reversed.
+
+Example:
+reverseString("Hello World!") should return "!dlroW olleH"
+
+Instructions:
+
+You can assume that the input string will only contain alphabetical characters and whitespace.
+Your function should be able to handle strings of any length.
+
+Hints:
+
+You can use the built-in split(), reverse(), and join() functions to help with this problem.
+Alternatively, you can use a loop to iterate through the string and build a new reversed string.

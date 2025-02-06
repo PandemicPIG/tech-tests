@@ -1,0 +1,179 @@
+<!--
+
+Sorry I have to go on short notice,
+please complete this for me, all main logic is there,
+just a few more metods to implement,
+check the TO DO in the script on the bottom
+
+-->
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>tic tac toe</title>
+    <style media="screen">
+      .board {
+        display: flex;
+        flex-wrap: wrap;
+        width: 300px;
+        height: 300px;
+        margin: 0 auto;
+        border: 1px solid black;
+      }
+
+      .cell {
+        box-sizing: border-box;
+        width: 33.33%;
+        height: 100px;
+        font-size: 5em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+      }
+
+      .cell:hover {
+        background-color: #eee;
+      }
+
+      .status {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 300px;
+        margin: 20px auto;
+      }
+
+      .turn {
+        font-size: 2em;
+      }
+
+      .result {
+        font-size: 2em;
+      }
+
+      .reset {
+        font-size: 1.5em;
+        padding: 10px;
+        border-radius: 5px;
+        background-color: #f44336;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+
+      .reset:hover {
+        background-color: #d32f2f;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="board">
+      <div class="cell" data-cell="0"></div>
+      <div class="cell" data-cell="1"></div>
+      <div class="cell" data-cell="2"></div>
+      <div class="cell" data-cell="3"></div>
+      <div class="cell" data-cell="4"></div>
+      <div class="cell" data-cell="5"></div>
+      <div class="cell" data-cell="6"></div>
+      <div class="cell" data-cell="7"></div>
+      <div class="cell" data-cell="8"></div>
+    </div>
+    <div class="status">
+      <div class="turn"></div>
+      <div class="result"></div>
+      <button class="reset">Reset</button>
+    </div>
+
+    <script type="text/javascript">
+      const board = document.querySelector('.board')
+      const cells = document.querySelectorAll('.cell')
+      const turn = document.querySelector('.turn')
+      const result = document.querySelector('.result')
+      const reset = document.querySelector('.reset')
+
+      const X_PLAYER = 'x'
+      const O_PLAYER = 'o'
+      let currentPlayer = X_PLAYER
+
+      const WINNING_COMBINATIONS = [
+       [0, 1, 2],
+       [3, 4, 5],
+       [6, 7, 8],
+       [0, 3, 6],remove_me
+       [1, 4, 7],
+       [2, 5, 8],
+       [0, 4, 8],
+       [2, 4, 6]
+      ]
+
+      startGame()
+
+      function startGame() {
+       cells.forEach(cell => {
+         cell.innerText = ''
+         cell.classList.remove(X_PLAYER)
+         cell.classList.remove(O_PLAYER)
+         cell.removeEventListener('click', handleClick)
+         cell.addEventListener('click', handleClick, { once: true })
+       })
+       setBoardHoverClass()
+       result.innerText = ''
+       currentPlayer = X_PLAYER
+       turn.innerText = `${currentPlayer}'s turn`
+      }
+
+      function handleClick(e) {
+       const cell = e.target
+       const currentClass = currentPlayer === X_PLAYER ? X_PLAYER : O_PLAYER
+       placeMark(cell, currentClass)
+       if (checkWin(currentClass)) {
+         endGame(false)
+       } else if (isDraw()) {
+         endGame(true)
+       } else {
+         swapTurns()
+         setBoardHoverClass()
+       }
+      }
+
+      function setBoardHoverClass() {
+       board.classList.remove(X_PLAYER)
+       board.classList.remove(O_PLAYER)
+       board.classList.add(currentPlayer)
+      }
+
+      function endGame(draw) {
+       if (draw) {
+         result.innerText = 'Draw!'
+       } else {
+         result.innerText = `${currentPlayer} wins!`
+       }
+       cells.forEach(cell => {
+         cell.removeEventListener('click', handleClick)
+       })
+      }
+
+      // TO DO
+
+      function isDraw() {
+       // check if it's a draw
+      }
+
+      function placeMark(cell, currentClass) {
+       // mark the cell with x or o
+      }
+
+      function swapTurns() {
+       // change the current player and display who's turn is next
+      }
+
+      function checkWin(currentClass) {
+       // check if it's a win
+      }
+
+      reset.addEventListener('click', startGame)
+    </script>
+  </body>
+</html>
