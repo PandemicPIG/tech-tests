@@ -53,5 +53,5 @@ test('should handle arrays with non-primitive items', () => {
   const obj1 = { id: 1 }
   const obj2 = { id: 2 }
   const obj3 = { id: 3 }
-  expect(mostFrequentItem([obj1, obj2, obj2, obj3, obj3, obj3]).id).toBe(3)
+  expect(mostFrequentItem([obj1, obj2, obj2, obj3, obj3, obj3]).id).toBe(obj3)
 })
