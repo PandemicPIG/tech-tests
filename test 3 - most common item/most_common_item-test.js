@@ -45,7 +45,7 @@ test('should handle arrays with multiple most frequent items', () => {
 })
 
 test('should handle long arrays', () => {
-  const longArray = [...(new Array(10**3).fill(1)), ...(new Array(10**4).fill(3)), ...(new Array(10**5).fill(3)), ...(new Array(10**6).fill(4))]
+  const longArray = [...(new Array(10**3).fill(1)), ...(new Array(10**4).fill(2)), ...(new Array(10**5).fill(3)), ...(new Array(10**6).fill(4))]
   expect(mostFrequentItem(longArray)).toBe(4)
 })
 
